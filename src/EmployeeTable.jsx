@@ -81,7 +81,7 @@ const EmployeeTable = () => {
                     </table>
 
                     <div className="pagination-controls">
-                        <button onClick={handlePrevious} disabled={currentPage === 1} className="pagination-button">
+                        <button onClick={handlePrevious} className="pagination-button">
                             Previous
                         </button>
 
