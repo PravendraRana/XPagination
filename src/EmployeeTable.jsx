@@ -8,22 +8,23 @@ const EmployeeTable = () => {
     const rowsPerPage = 10;
 
     // Fetch data from API
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(
-                    'https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json'
-                );
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const result = await response.json();
-                setData(result);
-            } catch (error) {
-                setError(true);
-                alert('failed to fetch data');
+    const fetchData = async () => {
+        try {
+            const response = await fetch(
+                'https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json'
+            );
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        };
+            const result = await response.json();
+            setData(result);
+        } catch (error) {
+            setError(true);
+            alert('failed to fetch data');
+        }
+    };
+
+    useEffect(() => {
         fetchData();
     }, []);
 
